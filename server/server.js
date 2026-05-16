@@ -30,7 +30,12 @@ const server = http.createServer(app);
 initializeSocket(server);
 
 // MIDDLEWARE
-app.use(cors());
+app.use(
+  cors({
+    origin: true,
+    credentials: true,
+  })
+);
 
 app.use(express.json());
 
