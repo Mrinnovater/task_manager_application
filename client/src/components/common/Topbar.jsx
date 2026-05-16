@@ -45,7 +45,7 @@ const Topbar = ({
         {user?.avatar ? (
 
           <img
-            src={`http://localhost:5000${user.avatar}`}
+            src={`${import.meta.env.VITE_API_URL.replace("/api","")}${user.avatar}`}
             alt="avatar"
             className="w-10 h-10 rounded-full object-cover border"
           />

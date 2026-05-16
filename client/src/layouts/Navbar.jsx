@@ -48,7 +48,7 @@ const Navbar = ({ setSidebarOpen }) => {
 
         {user?.avatar ? (
           <img
-            src={`http://127.0.0.1:5000${user.avatar}`}
+            src={`${import.meta.env.VITE_API_URL.replace("/api","")}${user.avatar}`}
             alt="profile"
             className="w-10 h-10 rounded-full object-cover border"
           />

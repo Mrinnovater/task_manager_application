@@ -27,7 +27,7 @@ const NotificationBell = () => {
         localStorage.getItem("token");
 
       const res = await axios.get(
-        "http://localhost:5000/api/notifications",
+        `${import.meta.env.VITE_API_URL}/notifications`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -55,7 +55,7 @@ const NotificationBell = () => {
         localStorage.getItem("token");
 
       await axios.put(
-        `http://localhost:5000/api/notifications/${id}/read`,
+        `${import.meta.env.VITE_API_URL}/notifications/${id}/read`,
         {},
         {
           headers: {

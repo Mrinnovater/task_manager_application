@@ -6,7 +6,7 @@ import io from "socket.io-client";
 
 import Sidebar from "../../layouts/Sidebar";
 
-const socket = io("http://localhost:5000");
+const socket = io(`${import.meta.env.VITE_API_URL}`);
 
 const ChatPage = () => {
 
@@ -46,7 +46,7 @@ const ChatPage = () => {
                 localStorage.getItem("token");
 
             const res = await axios.get(
-                `http://localhost:5000/api/chat/${room}`,
+                `${import.meta.env.VITE_API_URL}/chat/${room}`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`,
@@ -72,7 +72,7 @@ const ChatPage = () => {
                 localStorage.getItem("token");
 
             const res = await axios.post(
-                "http://localhost:5000/api/chat",
+                `${import.meta.env.VITE_API_URL}/chat`,
                 {
                     text,
                     room,

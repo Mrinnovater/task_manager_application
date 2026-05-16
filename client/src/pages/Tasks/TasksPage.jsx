@@ -35,9 +35,9 @@ const TasksPage = () => {
 
       // Fetch Tasks, Projects, and Users all at once!
       const [tasksRes, projectsRes, usersRes] = await Promise.all([
-        axios.get("http://localhost:5000/api/tasks", config),
-        axios.get("http://localhost:5000/api/projects", config),
-        axios.get("http://localhost:5000/api/auth/users", config),
+        axios.get(`${import.meta.env.VITE_API_URL}/tasks`, config),
+        axios.get(`${import.meta.env.VITE_API_URL}/projects`, config),
+        axios.get(`${import.meta.env.VITE_API_URL}/auth/users`, config),
       ]);
 
       setTasks(tasksRes.data);
@@ -52,7 +52,7 @@ const TasksPage = () => {
     e.preventDefault();
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.post("http://localhost:5000/api/tasks", formData, {
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/tasks`, formData, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

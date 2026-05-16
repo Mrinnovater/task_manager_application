@@ -51,7 +51,7 @@ const DashboardPage = () => {
 
         // CHECK AUTH
         await axios.get(
-          "http://localhost:5000/api/auth/me",
+          `${import.meta.env.VITE_API_URL}/auth/me`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -61,7 +61,7 @@ const DashboardPage = () => {
 
         // FETCH TASKS
         const taskResponse = await fetch(
-          "http://localhost:5000/api/tasks",
+          `${import.meta.env.VITE_API_URL}/tasks`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -72,7 +72,7 @@ const DashboardPage = () => {
 
         // FETCH PROJECTS
         const projectResponse = await fetch(
-          "http://localhost:5000/api/projects",
+          `${import.meta.env.VITE_API_URL}/projects`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -243,7 +243,7 @@ const DashboardPage = () => {
 >
   {user?.avatar ? (
     <img
-      src={`http://127.0.0.1:5000${user.avatar}`}
+      src={`${import.meta.env.VITE_API_URL.replace("/api","")}${user.avatar}`}
       alt="profile"
       className="w-10 h-10 rounded-full object-cover border hover:scale-105 transition"
     />

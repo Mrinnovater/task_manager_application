@@ -46,7 +46,7 @@ const SettingsPage = () => {
           localStorage.getItem("token");
 
         const res = await axios.get(
-          "http://localhost:5000/api/auth/me",
+          `${import.meta.env.VITE_API_URL}/auth/me`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -63,7 +63,7 @@ const SettingsPage = () => {
         if (res.data.avatar) {
 
           setAvatarPreview(
-            `http://localhost:5000${res.data.avatar}`
+            `${import.meta.env.VITE_API_URL.replace("/api", "")}${res.data.avatar}`
           );
         }
 
@@ -135,7 +135,7 @@ const SettingsPage = () => {
       }
 
       const res = await axios.put(
-        "http://localhost:5000/api/auth/profile",
+        `${import.meta.env.VITE_API_URL}/auth/profile`,
         updatedData,
         {
           headers: {

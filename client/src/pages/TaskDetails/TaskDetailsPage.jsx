@@ -42,7 +42,7 @@ const TaskDetailsPage = () => {
       const token = localStorage.getItem("token");
 
       const res = await axios.get(
-        `http://localhost:5000/api/tasks/${id}`,
+        `${import.meta.env.VITE_API_URL}/tasks/${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -66,7 +66,7 @@ const TaskDetailsPage = () => {
       const token = localStorage.getItem("token");
 
       await axios.put(
-        `http://localhost:5000/api/tasks/${id}/status`,
+        `${import.meta.env.VITE_API_URL}/tasks/${id}/status`,
         { status },
         {
           headers: {
@@ -91,7 +91,7 @@ const TaskDetailsPage = () => {
       const token = localStorage.getItem("token");
 
       const res = await axios.get(
-        `http://localhost:5000/api/comments/${id}`,
+        `${import.meta.env.VITE_API_URL}/comments/${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -115,7 +115,7 @@ const TaskDetailsPage = () => {
       const token = localStorage.getItem("token");
 
       await axios.post(
-        `http://localhost:5000/api/comments/${id}`,
+        `${import.meta.env.VITE_API_URL}/comments/${id}`,
         {
           text: commentText,
         },
@@ -150,7 +150,7 @@ const TaskDetailsPage = () => {
       formData.append("file", selectedFile);
 
       await axios.post(
-        `http://localhost:5000/api/tasks/${id}/upload`,
+        `${import.meta.env.VITE_API_URL}/tasks/${id}/upload`,
         formData,
         {
           headers: {
@@ -179,7 +179,7 @@ const TaskDetailsPage = () => {
       const token = localStorage.getItem("token");
 
       await axios.put(
-        `http://localhost:5000/api/tasks/${id}/remove-file`,
+        `${import.meta.env.VITE_API_URL}/tasks/${id}/remove-file`,
         { fileUrl },
         {
           headers: {
@@ -343,7 +343,7 @@ const TaskDetailsPage = () => {
                       {/* IMAGE PREVIEW */}
                       {isImage ? (
                         <img
-                          src={`http://localhost:5000${file.fileUrl}`}
+                          src={`${import.meta.env.VITE_API_URL}${file.fileUrl}`}
                           alt=""
                           className="w-full h-48 object-cover"
                         />
@@ -366,7 +366,7 @@ const TaskDetailsPage = () => {
                         <div className="flex gap-3 mt-4">
 
                           <a
-                            href={`http://localhost:5000${file.fileUrl}`}
+                            href={`${import.meta.env.VITE_API_URL}${file.fileUrl}`}
                             target="_blank"
                             rel="noreferrer"
                             className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm"
