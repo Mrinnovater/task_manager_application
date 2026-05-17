@@ -1,14 +1,17 @@
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import API from "../../api/axios";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const ResetPasswordPage = () => {
+
 
   const { token } = useParams();
 
   const navigate = useNavigate();
 
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = async (e) => {
 
@@ -74,25 +77,49 @@ const ResetPasswordPage = () => {
         Create your new secure password
       </p>
 
-      <input
-        type="password"
-        placeholder="Enter new password"
-        className="
-          w-full
-          bg-white/20
-          border
-          border-white/20
-          text-white
-          placeholder-gray-300
-          p-3
-          rounded-xl
-          mb-5
-          outline-none
-          focus:ring-2
-          focus:ring-emerald-400
-        "
-        onChange={(e) => setPassword(e.target.value)}
-      />
+      <div className="relative mb-5">
+
+  <input
+    type={showPassword ? "text" : "password"}
+    placeholder="Enter new password"
+    value={password}
+    onChange={(e)=>setPassword(e.target.value)}
+    className="
+      w-full
+      bg-white/20
+      border
+      border-white/20
+      text-white
+      placeholder-gray-300
+      p-3
+      rounded-xl
+      pr-12
+      outline-none
+      focus:ring-2
+      focus:ring-emerald-400
+    "
+  />
+
+  <button
+    type="button"
+    onClick={() => setShowPassword(!showPassword)}
+    className="
+      absolute
+      right-4
+      top-1/2
+      -translate-y-1/2
+      text-gray-300
+      hover:text-emerald-300
+    "
+  >
+    {showPassword ? (
+      <FaEyeSlash size={18}/>
+    ) : (
+      <FaEye size={18}/>
+    )}
+  </button>
+
+</div>
 
       <button
         className="

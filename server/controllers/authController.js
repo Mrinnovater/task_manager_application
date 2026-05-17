@@ -194,7 +194,7 @@ exports.forgotPassword = async (
 
     // RESET URL
     const resetUrl =
-      `http://localhost:5173/reset-password/${resetToken}`;
+`${process.env.CLIENT_URL}/reset-password/${resetToken}`;
 
     // SEND EMAIL
     await sendEmail(

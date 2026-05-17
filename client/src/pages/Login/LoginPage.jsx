@@ -1,8 +1,10 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { useNavigate, Link } from "react-router-dom";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const LoginPage = () => {
+
 
     const { login } = useContext(AuthContext);
 
@@ -12,6 +14,8 @@ const LoginPage = () => {
         email: "",
         password: "",
     });
+
+    const [showPassword, setShowPassword] = useState(false);
 
 
     const handleChange = (e) => {
@@ -106,26 +110,50 @@ const LoginPage = () => {
       />
 
       {/* PASSWORD */}
-      <input
-        type="password"
-        name="password"
-        placeholder="Enter your password"
-        className="
-          w-full
-          bg-white/20
-          border
-          border-white/20
-          text-white
-          placeholder-gray-300
-          p-3
-          rounded-xl
-          mb-2
-          outline-none
-          focus:ring-2
-          focus:ring-cyan-400
-        "
-        onChange={handleChange}
-      />
+<div className="relative mb-4">
+
+  <input
+    type={showPassword ? "text" : "password"}
+    name="password"
+    placeholder="Password"
+    onChange={handleChange}
+    className="
+      w-full
+      bg-white/20
+      border
+      border-white/20
+      text-white
+      placeholder-gray-300
+      p-3
+      rounded-xl
+      pr-12
+      outline-none
+      focus:ring-2
+      focus:ring-cyan-400
+    "
+  />
+
+  <button
+    type="button"
+    onClick={() => setShowPassword(!showPassword)}
+    className="
+      absolute
+      right-4
+      top-1/2
+      -translate-y-1/2
+      text-gray-300
+      hover:text-cyan-300
+      transition
+    "
+  >
+    {showPassword ? (
+      <FaEyeSlash size={18}/>
+    ) : (
+      <FaEye size={18}/>
+    )}
+  </button>
+
+</div>
 
       {/* FORGOT PASSWORD */}
       <div className="flex justify-end mb-5">
