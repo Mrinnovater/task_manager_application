@@ -8,8 +8,6 @@ Frontend: https://task-manager-application-3f3bjeyfx.vercel.app/
 
 Backend API: https://task-manager-application-dyg4.onrender.com
 
-Demo Video: 
-
 GitHub Repository: https://github.com/Mrinnovater/task_manager_application
 
 ---
