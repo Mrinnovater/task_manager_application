@@ -147,6 +147,12 @@ exports.updateProfile = async (req, res) => {
     // SAVE TO DATABASE
     await user.save();
 
+
+console.log(
+  "Saved Avatar:",
+  user.avatar
+);
+
     // FETCH UPDATED USER WITHOUT PASSWORD
     const updatedUser = await User.findById(user._id).select("-password");
 

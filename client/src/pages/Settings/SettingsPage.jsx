@@ -126,13 +126,28 @@ const SettingsPage = () => {
         formData.email
       );
 
-      if (avatarFile) {
+     if (avatarFile) {
 
-        updatedData.append(
-          "avatar",
-          avatarFile
-        );
-      }
+  console.log(
+    "Selected file:",
+    avatarFile
+  );
+
+  updatedData.append(
+    "avatar",
+    avatarFile
+  );
+
+}
+
+for (let pair of updatedData.entries()) {
+
+  console.log(
+    pair[0],
+    pair[1]
+  );
+
+}
 
       const res = await axios.put(
         `${import.meta.env.VITE_API_URL}/auth/profile`,
