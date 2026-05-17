@@ -263,7 +263,7 @@ Email: shivamchodisetty333@gmail.com
 
 GitHub: https://github.com/Mrinnovater
 
-LinkedIn: Add Your LinkedIn URL
+LinkedIn: https://www.linkedin.com/in/ch-venkata-shiva-sri-976245296/
 
 ---
 
